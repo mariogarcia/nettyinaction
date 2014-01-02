@@ -1,0 +1,7 @@
+build/
+target/
+.gradle/
+gradle/
+gradlew
+gradlew.*
+*.class
