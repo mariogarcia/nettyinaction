@@ -37,3 +37,13 @@ task echoServer (type: JavaExec) {
     main = 'netty.echo.EchoServer'
 
 }
+
+task echoClient (type: JavaExec) {
+
+    description = 'Building an echo client at port 8080'
+    group = 'Netty In Action'
+
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'netty.echo.EchoClient'
+
+}
