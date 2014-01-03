@@ -42,8 +42,9 @@ class EchoClient {
             ChannelFuture future = bootstrap.connect().sync()
             future.channel().closeFuture().sync()
 
+        } catch (e) {
+            e.printStackTrace()
         } finally {
-            println "Ahhhhh"
             group.shutdownGracefully().sync()
         }
 

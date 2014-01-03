@@ -38,11 +38,9 @@ class EchoServer {
                 })
 
             ChannelFuture future = bootstrap.bind().sync()
-            println("${EchoServer.simpleName} listening on ${future.channel().localAddress()}")
             future.channel().closeFuture().sync()
 
         } finally {
-            println "Ahhhhh"
             group.shutdownGracefully().sync()
         }
 

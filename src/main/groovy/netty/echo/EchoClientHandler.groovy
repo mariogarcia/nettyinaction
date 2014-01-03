@@ -14,12 +14,11 @@ import io.netty.channel.SimpleChannelInboundHandler
 class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     void channelActive(ChannelHandlerContext context) {
-        context.write(Unpooled.copiedBuffer("Netty rocks!", CharsetUtil.UTF_8))
+        context.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!", CharsetUtil.UTF_8))
     }
 
     void channelRead0(ChannelHandlerContext context, ByteBuf data) {
         def message = ByteBufUtil.hexDump(data.readBytes(data.readableBytes()))
-
         println "Client received: $message"
     }
 
