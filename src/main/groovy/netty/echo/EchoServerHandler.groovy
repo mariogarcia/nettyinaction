@@ -1,5 +1,7 @@
 package netty.echo
 
+import groovy.util.logging.Log
+
 import io.netty.util.CharsetUtil
 import io.netty.buffer.Unpooled
 import io.netty.channel.ChannelFutureListener
@@ -9,11 +11,12 @@ import io.netty.channel.ChannelInboundHandlerAdapter
 /**
  *
  */
+@Log
 class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
         void channelRead(ChannelHandlerContext context, Object data) {
             def message = data.readBytes(data.readableBytes()).toString(CharsetUtil.UTF_8)
-            println "Server received : $message"
+                log.info "Server received : $message"
             context.writeAndFlush(message)
         }
 
