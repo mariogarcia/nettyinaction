@@ -31,7 +31,7 @@ dependencies {
 task echoServer (type: JavaExec) {
 
     description = 'Building an echo server at port 8080'
-    group = 'Netty In Action'
+    group = 'Netty In Action (Groovy)'
 
     classpath = sourceSets.main.runtimeClasspath
     main = 'netty.echo.EchoServer'
@@ -41,7 +41,7 @@ task echoServer (type: JavaExec) {
 task echoClient (type: JavaExec) {
 
     description = 'Building an echo client at port 8080'
-    group = 'Netty In Action'
+    group = 'Netty In Action (Groovy)'
 
     classpath = sourceSets.main.runtimeClasspath
     main = 'netty.echo.EchoClient'
