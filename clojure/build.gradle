@@ -6,6 +6,7 @@ warnOnReflection = true
 aotCompile = true
 
 dependencies {
+    compile project(':java')
     compile 'org.clojure:clojure:1.2.1'
     compile 'io.netty:netty-all:4.0.0.Final'
 }
