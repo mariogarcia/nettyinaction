@@ -24,6 +24,7 @@
       (.group bootstrap group)
       (doto (NettyUtil.)
         (.channel bootstrap NioServerSocketChannel)
+        (.localAddress bootstrap (InetSocketAddress. 8080))
       )
 
     )
