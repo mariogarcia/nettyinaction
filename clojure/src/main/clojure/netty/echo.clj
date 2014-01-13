@@ -4,17 +4,6 @@
      :name netty.echo.EchoServer
      :prefix "-")
 
-    (:gen-class
-     :name netty.echo.EchoServerHandler
-     :extends ChannelInboundHandlerAdapter
-     :prefix "_adapter_"
-     :methods [
-       [channelRead [ChannelHandlerContext Object] Void]
-       [channelReadComplete [ChannelHandlerContext] Void]
-       [exceptionCaught [ChannelHandlerContext Throwable] Void]
-     ]
-    )
-
     (:import
       (netty.util NettyUtil)
       (io.netty.bootstrap ServerBootstrap)
@@ -45,14 +34,3 @@
   )
 )
 
-(defn _adapter_channelRead [context data] (
-
-))
-
-(defn _adapter_channelReadComplete [context] (
-
-))
-
-(defn _adapter_exceptionCaught [context throwable] (
-
-))
