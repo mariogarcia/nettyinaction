@@ -5,10 +5,11 @@ subprojects {
 	in the Clojure module */
 	buildscript {
     	repositories {
+            mavenCentral()
         	maven { url 'http://clojars.org/repo' }
     	}
 		dependencies {
-        	classpath 'clojuresque:clojuresque:1.5.4'
+        	classpath 'clojuresque:clojuresque:1.7.0'
     	}
 	}
  /* Enabling common repositories for all modules */

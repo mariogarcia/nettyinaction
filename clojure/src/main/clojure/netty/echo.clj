@@ -7,14 +7,13 @@
            (io.netty.channel.socket.nio NioServerSocketChannel)
            (java.net InetSocketAddress))
   (:require [netty.echo.server :refer [channel-adapter]])
-
-    (:gen-class))
+  (:gen-class))
 
 (defn -main []
   "This example builds an echo server with Netty"
   (let [group     (NioEventLoopGroup.)
         bootstrap (ServerBootstrap.)
-        handler   (netty.echo.server/channel-adapter)]
+        handler   (channel-adapter)]
 
     (doto (NettyUtil.)
       (.group bootstrap group)
