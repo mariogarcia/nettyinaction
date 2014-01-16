@@ -14,9 +14,8 @@
   "This example builds an echo server with Netty"
   (let [group     (NioEventLoopGroup.)
         bootstrap (ServerBootstrap.)
-        handler   (channel-adapter)]
+        handler   (netty.echo.server/channel-adapter)]
 
-    (.channelReadComplete handler d df)
     (doto (NettyUtil.)
       (.group bootstrap group)
       (.channel bootstrap NioServerSocketChannel)

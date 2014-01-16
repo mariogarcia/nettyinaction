@@ -12,11 +12,11 @@
            (io.netty.util CharsetUtil)
            (io.netty.channel.nio NioEventLoopGroup)
            (io.netty.channel.socket SocketChannel)
-           (io.netty.channel.socket.nio NioServerSocketChannel))
+           (io.netty.channel.socket.nio NioServerSocketChannel)))
 
 (defn channel-adapter
   []
-  (proxy [] [ChannelInboundHandlerAdapter]
+  (proxy [ChannelInboundHandlerAdapter] []
     (channelRead [context data])
 
     (channelReadComplete [context]
@@ -25,4 +25,4 @@
 
     (exceptionCaught [context throwable]
       (.printStackTrace throwable)
-      (.close context)))))
+      (.close context))))
