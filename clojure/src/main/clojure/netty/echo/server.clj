@@ -17,7 +17,10 @@
 (defn channel-adapter
   []
   (proxy [ChannelInboundHandlerAdapter] []
-    (channelRead [context data])
+    (channelRead [context data]
+      (let [readableBytes []]
+
+        ))
 
     (channelReadComplete [context]
       (let [once-flush (.writeAndFlush context Unpooled/EMPTY_BUFFER)]
