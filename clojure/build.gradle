@@ -16,7 +16,7 @@ task run(type: JavaExec) {
     group = 'Netty In Action (Clojure)'
     description = "Echo Server in Clojure"
 
-    main = "netty.echo.EchoServer"
+    main = "netty.echo"
     classpath = sourceSets.main.runtimeClasspath
 
 }

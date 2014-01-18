@@ -18,9 +18,12 @@
   []
   (proxy [ChannelInboundHandlerAdapter] []
     (channelRead [context data]
-      (let [readableBytes []]
+      (let [bytesToRead   (.readableBytes data)
+            messageBytes  (.readBytes bytesToRead)
+            message       (.toString messageBytes CharsetUtil/UTF_8)]
 
-        ))
+        (.writeAndFlush message)))
+
 
     (channelReadComplete [context]
       (let [once-flush (.writeAndFlush context Unpooled/EMPTY_BUFFER)]
@@ -29,3 +32,11 @@
     (exceptionCaught [context throwable]
       (.printStackTrace throwable)
       (.close context))))
+
+(defn channel-initializer
+    [handler]
+    (proxy [ChannelInitializer][]
+      (initChannel [channel]
+        (.addLast (.pipeline channel) handler))))
+
+

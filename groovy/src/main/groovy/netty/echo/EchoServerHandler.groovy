@@ -29,7 +29,7 @@ class EchoServerHandler extends ChannelInboundHandlerAdapter {
         void exceptionCaught(ChannelHandlerContext context, Throwable cause) {
             cause.printStacktrace()
             context.close()
-        }
+       }
 
 }
 

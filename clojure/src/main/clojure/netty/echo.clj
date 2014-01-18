@@ -6,19 +6,21 @@
            (io.netty.channel.socket SocketChannel)
            (io.netty.channel.socket.nio NioServerSocketChannel)
            (java.net InetSocketAddress))
-  (:require [netty.echo.server :refer [channel-adapter]])
+  (:require [netty.echo.server :refer [channel-adapter channel-initializer]])
   (:gen-class))
 
 (defn -main []
   "This example builds an echo server with Netty"
-  (let [group     (NioEventLoopGroup.)
-        bootstrap (ServerBootstrap.)
-        handler   (channel-adapter)]
+  (let [group       (NioEventLoopGroup.)
+        bootstrap   (ServerBootstrap.)
+        handler     (channel-adapter)
+        initializer (channel-initializer handler)]
 
     (doto (NettyUtil.)
       (.group bootstrap group)
       (.channel bootstrap NioServerSocketChannel)
       (.localAddress bootstrap (InetSocketAddress. 8080)))
+      (.childHandler bootstrap initializer)
 
     (let [fut (.sync (.bind bootstrap))]
       (.sync (.closeFuture (.channel fut))))))
