@@ -13,8 +13,7 @@
   "This example builds an echo server with Netty"
   (let [group       (NioEventLoopGroup.)
         bootstrap   (ServerBootstrap.)
-        handler     (channel-adapter)
-        initializer (channel-initializer handler)]
+        initializer (channel-initializer)]
 
     (doto (NettyUtil.)
       (.group bootstrap group)
