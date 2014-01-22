@@ -7,9 +7,9 @@
                              ChannelHandlerContext
                              ChannelInboundHandlerAdapter
                              EventLoopGroup)
+           (io.netty.util CharsetUtil)
            (io.netty.bootstrap ServerBootstrap)
            (io.netty.buffer Unpooled)
-           (io.netty.util CharsetUtil)
            (io.netty.channel.nio NioEventLoopGroup)
            (io.netty.channel.socket SocketChannel)
            (io.netty.channel.socket.nio NioServerSocketChannel)))

@@ -7,26 +7,15 @@ import io.netty.channel.ServerChannel;
 
 public class NettyUtil {
 
-    public ServerBootstrap channel(
-        ServerBootstrap bootstrap,
-        Class<? extends ServerChannel> channelClazz) {
-
+    public ServerBootstrap channel(ServerBootstrap bootstrap, Class<? extends ServerChannel> channelClazz) {
         return bootstrap.channel(channelClazz);
-
     }
 
-    public ServerBootstrap group(
-        ServerBootstrap bootstrap,
-        NioEventLoopGroup group
-    ) {
-
+    public ServerBootstrap group(ServerBootstrap bootstrap, NioEventLoopGroup group) {
         return bootstrap.group(group);
     }
 
-    public ServerBootstrap localAddress(
-        ServerBootstrap bootstrap,
-        InetSocketAddress address
-    ) {
+    public ServerBootstrap localAddress(ServerBootstrap bootstrap, InetSocketAddress address) {
         return bootstrap.localAddress(address);
     }
 

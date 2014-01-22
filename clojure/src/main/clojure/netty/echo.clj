@@ -9,7 +9,8 @@
   (:require [netty.echo.server :refer [channel-adapter channel-initializer]])
   (:gen-class))
 
-(defn -main []
+(defn -main
+  []
   "This example builds an echo server with Netty"
   (let [group       (NioEventLoopGroup.)
         bootstrap   (ServerBootstrap.)
